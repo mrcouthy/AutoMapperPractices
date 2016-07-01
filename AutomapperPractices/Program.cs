@@ -11,9 +11,10 @@ namespace AutomapperPractices
     {
         static void Main(string[] args)
         {
-            var p = new Person {Id=1,Name="God" };
-            Mapper.Initialize(cfg => cfg.CreateMap<Person, Employee>());
+            var p = new Person { Id = 1, Name = "God" };
+            Mapper.Initialize(cfg => cfg.CreateMap<Person, Employee>().ReverseMap());
             var e = Mapper.Map<Employee>(p);
+            var q = Mapper.Map<Person>(e);
         }
     }
 
